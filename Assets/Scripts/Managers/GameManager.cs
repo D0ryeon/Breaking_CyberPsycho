@@ -45,7 +45,7 @@ public class GameManager : MonoBehaviour
             GameObject gameObject = GameObject.Find("@GameManager");
             if (gameObject == null)
             {
-                gameObject = new GameObject { name = "GameManager" };
+                gameObject = new GameObject { name = "@GameManager" };
                 gameObject.AddComponent<GameManager>();
             }
 
