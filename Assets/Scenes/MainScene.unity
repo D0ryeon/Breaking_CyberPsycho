@@ -259,7 +259,9 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 9b122fcf2b6c51944bc69b729ca7f61d, type: 2}
   - {fileID: 11400000, guid: 15969239058087f478f9a39c76380dba, type: 2}
   - {fileID: 11400000, guid: 1027a1bb82364d542b5c87fcf894e7a5, type: 2}
-  brickPrefab: {fileID: 4115950267678302775, guid: 9e1693d70ba9cb843873370fc0b47802, type: 3}
+  brickPrefab: {fileID: 983858346544513482, guid: 1aa5ab250b215a0419562e0ee555b822, type: 3}
+  xOffset: 2
+  currentX: -1000
 --- !u!4 &229150777
 Transform:
   m_ObjectHideFlags: 0

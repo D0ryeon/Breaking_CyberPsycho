@@ -10,30 +10,31 @@ public class StageManager : MonoBehaviour
     [SerializeField]
     private GameObject brickPrefab;
    
-    public float xOffset = 0.1f;
-
-    private float currentX = 0f;
+    public float xOffset = 10f;
+    [SerializeField]
+    private float currentX = -10f;
     void Start()
     {
         
         for (int i = 0; i < brickDatas.Count; i++)
         {
+            for (int j = 1; j < 2; j++)
+            {
+                currentX += xOffset;
+                // 새로운 위치 설정
+                Vector3 newPosition = new Vector3(currentX, this.transform.position.y, this.transform.position.z);
+                this.transform.position = newPosition;
+                var brick = SpawnBrick((BrickType)i);
+                brick.PrintBrick();
+            }                        
            
-           var brick = SpawnBrick((BrickType)i);
-            brick.PrintBrick();
-
-            currentX += xOffset;
-
-            // 새로운 위치 설정
-            Vector3 newPosition = new Vector3(currentX, this.transform.position.y, this.transform.position.z);
-            this.transform.position = newPosition;
         }
     }
 
     public BrickController SpawnBrick(BrickType type)
     {
         
-        var newBrick = Instantiate(brickPrefab, new Vector3(2, 0, 0), Quaternion.identity).GetComponent<BrickController>();
+        var newBrick = Instantiate(brickPrefab).GetComponent<BrickController>();
         newBrick.transform.SetParent(this.transform);
         newBrick.brickData = brickDatas[(int)type];
         newBrick.name = newBrick.brickData.BrickName;
