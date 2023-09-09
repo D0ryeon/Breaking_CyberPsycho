@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public enum BrickType { Normal, Red, Blue, Boss }
+public enum BrickType { Boss, Blue,Red,Normal }
 public class StageManager : MonoBehaviour
 {
     [SerializeField]
@@ -10,24 +10,30 @@ public class StageManager : MonoBehaviour
     [SerializeField]
     private GameObject brickPrefab;
    
-    public float xOffset = 10f;
-    [SerializeField]
-    private float currentX = -10f;
+    public float xOffset = 2f;
     void Start()
     {
-        
-        for (int i = 0; i < brickDatas.Count; i++)
+        int brickCount = brickDatas.Count;
+        float currentX = -10f;
+        float currentY = 0;
+
+        for (int i = 0; i < brickCount; i++)
         {
-            for (int j = 1; j < 2; j++)
+            for (int j = 0; j < 9; j++)
             {
+               
                 currentX += xOffset;
                 // 새로운 위치 설정
-                Vector3 newPosition = new Vector3(currentX, this.transform.position.y, this.transform.position.z);
-                this.transform.position = newPosition;
+                Vector3 newPosition = new Vector3(currentX, currentY, this.transform.position.z);
+
+                brickPrefab.transform.position = newPosition;
                 var brick = SpawnBrick((BrickType)i);
                 brick.PrintBrick();
-            }                        
-           
+
+            }
+       
+            currentY++;
+            currentX = -10f;
         }
     }
 
