@@ -10,4 +10,7 @@ public class BrickData : ScriptableObject
     [SerializeField]
     private int hp;
     public  int Hp { get { return hp; } }
+    [SerializeField]
+    private Color color;
+    public Color Color { get { return color; } }
 }

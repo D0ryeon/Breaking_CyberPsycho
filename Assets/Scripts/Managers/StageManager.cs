@@ -2,14 +2,16 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public enum BrickType { Boss, Blue,Red,Normal }
+public enum BrickType { Normal, Red, Blue,Boss }
 public class StageManager : MonoBehaviour
 {
     [SerializeField]
     private List<BrickData> brickDatas;
     [SerializeField]
     private GameObject brickPrefab;
-   
+
+  
+
     public float xOffset = 2f;
     void Start()
     {
@@ -23,10 +25,10 @@ public class StageManager : MonoBehaviour
             {
                
                 currentX += xOffset;
-                // 새로운 위치 설정
+                brickPrefab.GetComponent<SpriteRenderer>().color = brickDatas[i].Color;
                 Vector3 newPosition = new Vector3(currentX, currentY, this.transform.position.z);
-
                 brickPrefab.transform.position = newPosition;
+              
                 var brick = SpawnBrick((BrickType)i);
                 brick.PrintBrick();
 
@@ -39,7 +41,7 @@ public class StageManager : MonoBehaviour
 
     public BrickController SpawnBrick(BrickType type)
     {
-        
+       
         var newBrick = Instantiate(brickPrefab).GetComponent<BrickController>();
         newBrick.transform.SetParent(this.transform);
         newBrick.brickData = brickDatas[(int)type];
