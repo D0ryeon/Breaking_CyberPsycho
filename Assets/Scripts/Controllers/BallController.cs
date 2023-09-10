@@ -28,13 +28,20 @@ public class BallController : MonoBehaviour
 
     void Update()
     {
+        float pos = 0f;
         transform.localScale = new Vector3(size, size);
+        if(startgame==false)
+        {
+            pos = (paddle.transform.localPosition.x * 1.5f);
+
+            transform.localPosition =new Vector3( paddle.transform.localPosition.x+pos,0f,0f);
+        }
     }
 
     public void Starball()
     {
+        startgame= true;
         Vector2 dir = new Vector2(randomX, randomY).normalized;
-
         rd.AddForce(dir * speed);
     }
 }
