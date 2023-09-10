@@ -9,8 +9,10 @@ public class BallController : MonoBehaviour
 {
     [SerializeField][RangeAttribute(1f, 1000f)] float speed = 1f;
     [SerializeField][RangeAttribute(0.5f, 5f)] float size = 1f;
-    bool starts = Input.GetMouseButton(0);
+    bool starts;
     public Rigidbody2D rd;
+    public GameObject paddle;
+    bool startgame =false;
 
     float randomX, randomY;
 
@@ -20,13 +22,13 @@ public class BallController : MonoBehaviour
 
         randomX = 0f;
         randomY = 1f;
-        Starball();
+        
+        //Starball();
     }
 
     void Update()
     {
         transform.localScale = new Vector3(size, size);
-        if (starts) { Starball(); }
     }
 
     public void Starball()
