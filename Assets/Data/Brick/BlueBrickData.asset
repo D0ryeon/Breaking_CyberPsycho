@@ -14,3 +14,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   brickName: blueBrick
   hp: 3
+  color: {r: 0, g: 0.1634264, b: 1, a: 1}
