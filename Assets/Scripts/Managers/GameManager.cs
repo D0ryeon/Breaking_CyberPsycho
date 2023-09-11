@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Resources;
 using UnityEngine;
 
 public class GameManager : MonoBehaviour
@@ -10,6 +11,7 @@ public class GameManager : MonoBehaviour
     #region Managers
     DataManager _data = new DataManager();
     ItemManager _item = new ItemManager();
+    ResourceManager _resource = new ResourceManager();
     SceneManager _scene = new SceneManager();
     ScoreManager _score = new ScoreManager();
     SettingManager _setting = new SettingManager();
@@ -18,6 +20,7 @@ public class GameManager : MonoBehaviour
 
     public static DataManager Data { get { return Instance._data; } }
     public static ItemManager Item { get { return Instance._item; } }
+    public static ResourceManager Resource { get { return Instance._resource; } }
     public static SceneManager Scene { get {  return Instance._scene; } }
     public static ScoreManager Score { get {  return Instance._score; } }
     public static SettingManager Setting { get {  return Instance._setting; } }
@@ -30,12 +33,6 @@ public class GameManager : MonoBehaviour
     void Start()
     {
         Init();
-    }
-
-
-    void Update()
-    {
-        
     }
 
     static void Init()
@@ -51,6 +48,8 @@ public class GameManager : MonoBehaviour
 
             DontDestroyOnLoad(gameObject);
             s_instance = gameObject.GetComponent<GameManager>();
+
+            s_instance._data.Init();
         }
     }
 
