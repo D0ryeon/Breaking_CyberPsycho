@@ -21,11 +21,13 @@ public class PaddleController : MonoBehaviour
     void Update()
     {
         transform.localScale = new Vector3(size, 0.3f);
+        rb.velocity = Vector3.zero;
         horizontal = Input.GetAxis("Horizontal");
         Vector2 move = new Vector2(horizontal, 0);
         Vector2 pos = rb.position;
         rb.velocity = pos + (move * speed * Time.deltaTime);
         rb.MovePosition(rb.velocity);
+        rb.velocity = Vector3.zero;
     }
 
     void FixedUpdate()
