@@ -13,24 +13,33 @@ public class StageManager : MonoBehaviour
 
     [Header("Stage1")]
     [SerializeField]
-    private GameObject stage1;
+    private GameObject Stag1Brick;
 
-    public int Stage1BrickCount;
+    public int Stage1BrickCount  ;
 
 
 
    
     void Start()
     {
+       
         Stage1();
+        if(Stag1Brick.transform.childCount == 0)
+        {
+            Stag1Brick.transform.GetChild(0).gameObject.SetActive(false);  // stage1 end
+        }
+    }
+    void Update()       
+    {
+        Stage1BrickCount = Stag1Brick.transform.childCount;
     }
 
 
-    public BrickController SpawnBrick(BrickType type)
+        public BrickController SpawnBrick(BrickType type)
     {
 
         var newBrick = Instantiate(brickPrefab).GetComponent<BrickController>();
-        newBrick.transform.SetParent(stage1.transform);
+        newBrick.transform.SetParent(Stag1Brick.transform);
         newBrick.brickData = brickDatas[(int)type];
         newBrick.name = newBrick.brickData.BrickName;
         return newBrick;
@@ -42,7 +51,7 @@ public class StageManager : MonoBehaviour
         int brickCount = brickDatas.Count;
         float currentX = -10f;
         float currentY = 0;
-
+       
         for (int i = 0; i < brickCount; i++)
         {
             for (int j = 0; j < 9; j++)
@@ -54,7 +63,7 @@ public class StageManager : MonoBehaviour
                 brickPrefab.transform.position = newPosition;
 
                 var brick = SpawnBrick((BrickType)i);
-                Stage1BrickCount++;
+               
                 brick.PrintBrick();
 
             }
@@ -62,5 +71,8 @@ public class StageManager : MonoBehaviour
             currentY++;
             currentX = -10f;
         }
+     
     }
+
+   
 }
