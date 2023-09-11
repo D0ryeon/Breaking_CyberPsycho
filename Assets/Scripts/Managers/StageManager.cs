@@ -66,7 +66,7 @@ public class StageManager : MonoBehaviour
                
                 brick.PrintBrick();
 
-            }
+            }//e
 
             currentY++;
             currentX = -10f;
