@@ -12,7 +12,7 @@ public class GameManager : MonoBehaviour
     DataManager _data = new DataManager();
     ItemManager _item = new ItemManager();
     ResourceManager _resource = new ResourceManager();
-    SceneManager _scene = new SceneManager();
+    ScenesManager _scene = new ScenesManager();
     ScoreManager _score = new ScoreManager();
     SettingManager _setting = new SettingManager();
     SoundManager _sound = new SoundManager();
@@ -21,7 +21,7 @@ public class GameManager : MonoBehaviour
     public static DataManager Data { get { return Instance._data; } }
     public static ItemManager Item { get { return Instance._item; } }
     public static ResourceManager Resource { get { return Instance._resource; } }
-    public static SceneManager Scene { get {  return Instance._scene; } }
+    public static ScenesManager Scene { get {  return Instance._scene; } }
     public static ScoreManager Score { get {  return Instance._score; } }
     public static SettingManager Setting { get {  return Instance._setting; } }
     public static SoundManager Sound { get { return Instance._sound; } }
