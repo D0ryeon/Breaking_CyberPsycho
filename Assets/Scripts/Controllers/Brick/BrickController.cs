@@ -5,37 +5,50 @@ using UnityEngine;
 public class BrickController : MonoBehaviour
 {
     public BrickData brickData;
-    public StageManager newBrick;
+    int BrickHp;
 
 
 
     private void Start()
     {
-      
-        newBrick = GetComponent<StageManager>();
+         BrickHp = brickData.Hp;
+
     }
-    public void PrintBrick()
+
+    private void Update()
+    {
+
+    }
+        public void PrintBrick()
     {
         Debug.Log("블럭이름::" + brickData.BrickName);
         Debug.Log("블럭Hp::" + brickData.Hp);
         Debug.Log("블럭색갈::" + brickData.Color);
     }
-    
 
-    private void BrickDistroid(Collider other)
+
+    private void OnCollisionEnter2D(Collision2D other)
     {
-        int BrickHp = brickData.Hp;
-        if (other.gameObject.name == "Ball")
+       
+        if (other != null)
         {
-            if (BrickHp <= 0)
+            Debug.Log(other.gameObject.name);
+
+          
+            if (other.gameObject.name == "Ball")
             {
-                Debug.Log("DestroyBrick");
+              
+                Debug.Log("충돌");
+                if (BrickHp == 1)
+                {
+                    Debug.Log("DestroyBrick");
+                    Destroy(gameObject);                   
+                }
+                BrickHp--;
 
-                Destroy(this.gameObject);
-
-                newBrick.Stage1BrickCount--;
+                Debug.Log(BrickHp);
+                
             }
-            BrickHp--;
         }
     }
 }

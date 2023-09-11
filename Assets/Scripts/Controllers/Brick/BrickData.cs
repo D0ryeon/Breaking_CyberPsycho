@@ -13,4 +13,6 @@ public class BrickData : ScriptableObject
     [SerializeField]
     private Color color;
     public Color Color { get { return color; } }
+
+
 }
