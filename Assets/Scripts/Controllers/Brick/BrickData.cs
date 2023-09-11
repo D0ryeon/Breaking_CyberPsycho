@@ -14,5 +14,7 @@ public class BrickData : ScriptableObject
     private Color color;
     public Color Color { get { return color; } }
 
+    public Sprite sprite;
+
 
 }
