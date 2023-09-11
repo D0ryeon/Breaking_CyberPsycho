@@ -413,7 +413,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 200
+  size: 1
   rd: {fileID: 0}
+  paddle: {fileID: 0}
 --- !u!50 &42608224
 Rigidbody2D:
   serializedVersion: 4
@@ -614,6 +616,8 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 1027a1bb82364d542b5c87fcf894e7a5, type: 2}
   brickPrefab: {fileID: 983858346544513482, guid: 1aa5ab250b215a0419562e0ee555b822, type: 3}
   xOffset: 2
+  stage1: {fileID: 0}
+  Stage1BrickCount: 0
 --- !u!4 &229150777
 Transform:
   m_ObjectHideFlags: 0
@@ -1464,18 +1468,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   rb: {fileID: 914240546}
   speed: 100
-  arrAngles:
-  - -75
-  - -60
-  - -45
-  - -30
-  - -15
-  - 0
-  - 15
-  - 30
-  - 45
-  - 60
-  - 75
+  size: 3
 --- !u!1 &946627699
 GameObject:
   m_ObjectHideFlags: 0

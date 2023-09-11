@@ -10,7 +10,7 @@ public class PaddleController : MonoBehaviour
     public Rigidbody2D rb;
     private float horizontal;
     //private float vertical;
-    [SerializeField][RangeAttribute(50f, 1000f)] float speed = 100f;
+    //[SerializeField][RangeAttribute(50f, 1000f)] float speed = 100f;
     [SerializeField][RangeAttribute(0.5f, 10f)] float size = 3f;
 
     // Start is called before the first frame update

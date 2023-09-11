@@ -15,7 +15,7 @@ GameObject:
   - component: {fileID: 6965558496686384113}
   m_Layer: 0
   m_Name: Ball_Sprite
-  m_TagString: Untagged
+  m_TagString: Ball
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -195,5 +195,5 @@ Transform:
   m_Children:
   - {fileID: 8177386548435917402}
   m_Father: {fileID: 0}
-  m_RootOrder: 4
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
