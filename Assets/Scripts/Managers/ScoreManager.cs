@@ -1,12 +1,5 @@
 using System.Collections.Generic;
 
-public class Score
-{
-    public int score { get; set; }
-    public string name { get; set; }
-}
-
-
 public class ScoreManager
 {
     private const string SCORE_FILE_NAME = "PlayerScore";
