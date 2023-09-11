@@ -1,15 +1,24 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using TMPro;
 
 public enum BrickType { Normal, Red, Blue,Boss }
+
 public class StageManager : MonoBehaviour
 {
+    static public int score = 0;
+
     [SerializeField]
     private List<BrickData> brickDatas;
     [SerializeField]
     private GameObject brickPrefab;
     public float xOffset = 2f;
+
+    [Header("UI")]
+    [SerializeField]
+    private TextMeshProUGUI CurrentScore;
+
 
     [Header("Stage1")]
     [SerializeField]
@@ -33,6 +42,8 @@ public class StageManager : MonoBehaviour
         {
             Time.timeScale = 0; // stage1 end
         }
+        CurrentScore.text = score.ToString();
+
     }
 
 
