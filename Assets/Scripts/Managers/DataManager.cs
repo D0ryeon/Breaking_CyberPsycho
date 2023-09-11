@@ -2,17 +2,21 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class DataManager : MonoBehaviour
+public interface ILoader<Key, Value>
 {
-    // Start is called before the first frame update
-    void Start()
+    Dictionary<Key, Value> MakeDict();
+}
+
+public class DataManager
+{
+    public void Init()
     {
         
     }
 
-    // Update is called once per frame
-    void Update()
+    Loader LoadJson<Loader, Key, Value>(string path) where Loader : ILoader<Key, Value>
     {
-        
+        TextAsset textAsset = GameManager.Resource.Load<TextAsset>($"Data/{path}");
+        return JsonUtility.FromJson<Loader>(textAsset.text);
     }
 }
