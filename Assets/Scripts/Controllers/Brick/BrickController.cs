@@ -4,14 +4,18 @@ using UnityEngine;
 
 public class BrickController : MonoBehaviour
 {
+    SpriteRenderer sr;
     public BrickData brickData;
     int BrickHp;
+    int BrickScore;
 
-
+   
 
     private void Start()
     {
-         BrickHp = brickData.Hp;
+        BrickHp = brickData.Hp;
+        BrickScore = brickData.Score;
+        sr = this.GetComponent<SpriteRenderer>();
 
     }
 
@@ -35,15 +39,27 @@ public class BrickController : MonoBehaviour
             Debug.Log(other.gameObject.name);
 
           
-            if (other.gameObject.name == "Ball")
+            if (other.gameObject.name == "Ball_Sprite")
             {
-              
-                Debug.Log("Ãæµ¹");
-                if (BrickHp == 1)
+                switch (BrickHp)
                 {
-                    Debug.Log("DestroyBrick");
-                    Destroy(gameObject);                   
-                }
+                    case > 4:
+                        sr.color = Color.black;
+                        break;
+                    case  4:
+                        sr.color = Color.blue;
+                        break;
+                    case 3:
+                        sr.color = Color.red;
+                        break;
+                    case 2:
+                        sr.color = Color.white;
+                        break;
+                    case  1:
+                        Destroy(gameObject);
+                        StageManager.score += BrickScore;
+                        break;             
+                }            
                 BrickHp--;
 
                 Debug.Log(BrickHp);
