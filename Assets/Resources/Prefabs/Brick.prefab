@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 859801505349667671}
   - component: {fileID: 1139320778259183101}
   m_Layer: 0
-  m_Name: brick
+  m_Name: Brick
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -99,7 +99,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   brickData: {fileID: 0}
-  newBrick: {fileID: 0}
 --- !u!61 &1139320778259183101
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -129,7 +128,7 @@ BoxCollider2D:
   m_CallbackLayers:
     serializedVersion: 2
     m_Bits: 4294967295
-  m_IsTrigger: 1
+  m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}

@@ -24,14 +24,15 @@ public class StageManager : MonoBehaviour
     {
        
         Stage1();
-        if(Stag1Brick.transform.childCount == 0)
-        {
-            Stag1Brick.transform.GetChild(0).gameObject.SetActive(false);  // stage1 end
-        }
+       
     }
     void Update()       
     {
         Stage1BrickCount = Stag1Brick.transform.childCount;
+        if (Stag1Brick.transform.childCount == 0)
+        {
+            Time.timeScale = 0; // stage1 end
+        }
     }
 
 
@@ -59,6 +60,7 @@ public class StageManager : MonoBehaviour
 
                 currentX += xOffset;
                 brickPrefab.GetComponent<SpriteRenderer>().color = brickDatas[i].Color;
+                brickPrefab.GetComponent<SpriteRenderer>().sprite = brickDatas[i].sprite;
                 Vector3 newPosition = new Vector3(currentX, currentY, this.transform.position.z);
                 brickPrefab.transform.position = newPosition;
 
