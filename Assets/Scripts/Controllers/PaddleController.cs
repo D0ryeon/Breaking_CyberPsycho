@@ -12,7 +12,7 @@ public class PaddleController : MonoBehaviour
     //private float vertical;
     //[SerializeField][RangeAttribute(50f, 1000f)] float speed = 100f;
     [SerializeField][RangeAttribute(0.5f, 10f)] float size = 3f;
-
+    [SerializeField][RangeAttribute(1f, 10f)] public float life = 3f;
     // Start is called before the first frame update
     void Start()
     {
@@ -37,6 +37,12 @@ public class PaddleController : MonoBehaviour
         pos = Camera.main.ScreenToWorldPoint(pos);
         pos= new Vector2(Mathf.Clamp(pos.x, -7.5f, 7.5f), -4);
         transform.position = pos;
+    }
+
+    public void removeLife()
+    {
+        life--;
+        Debug.Log(life);
     }
 
     void FixedUpdate()
