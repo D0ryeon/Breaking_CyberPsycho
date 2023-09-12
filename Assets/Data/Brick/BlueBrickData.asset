@@ -13,5 +13,7 @@ MonoBehaviour:
   m_Name: BlueBrickData
   m_EditorClassIdentifier: 
   brickName: blueBrick
-  hp: 3
+  hp: 1
+  score: 12
   color: {r: 0, g: 0.1634264, b: 1, a: 1}
+  sprite: {fileID: 10907, guid: 0000000000000000f000000000000000, type: 0}
