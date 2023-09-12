@@ -89,7 +89,7 @@ public class StageManager :MonoBehaviour
     {
         if (BrickCount == 0)
         {
-            Time.timeScale = 0; // stage1 end
+            Time.timeScale = 0f; // stage1 end
             Score Hscore = GameManager.Score.GetHighScore();
             if (score >= Hscore.score)
             {
@@ -106,7 +106,7 @@ public class StageManager :MonoBehaviour
         }
         else
         {
-            Time.timeScale = 1;
+            Time.timeScale = 1f;
             GameOverPopup.SetActive(false);
         }
 
@@ -115,7 +115,7 @@ public class StageManager :MonoBehaviour
     public void SaveScore()
     {
 
-
+        
         BtnEnter.onClick.AddListener(() =>
         {   if(userName.text!=null)
             {
@@ -141,28 +141,28 @@ public class StageManager :MonoBehaviour
     {
 
         int brickCount = brickDatas.Count;
-        float currentX = -2f;
+        float currentX = -10f;
         float currentY = 0;
 
-        for (int i = 0; i < brickCount; i++)
+        for (int i = 0; i < 4; i++)
         {
-            for (int j = 0; j < 1; j++)
+            for (int j = 0; j < 9; j++)
             {
 
                 currentX += xOffset;
-                brickPrefab.GetComponent<SpriteRenderer>().color = brickDatas[i].Color;
-                brickPrefab.GetComponent<SpriteRenderer>().sprite = brickDatas[i].sprite;
+                brickPrefab.GetComponent<SpriteRenderer>().color = brickDatas[0].Color;
+                brickPrefab.GetComponent<SpriteRenderer>().sprite = brickDatas[0].sprite;
                 Vector3 newPosition = new Vector3(currentX, currentY,this.transform.position.z);
                 brickPrefab.transform.position = newPosition;
                 BrickCount++;
-                var brick = SpawnBrick((BrickType)i);
+                var brick = SpawnBrick((BrickType)0);
 
                 brick.PrintBrick();
 
             }
 
             currentY++;
-            currentX = -2f;
+            currentX = -10f;
         }
 
     }

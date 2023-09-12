@@ -42,7 +42,7 @@ public class BrickController : MonoBehaviour
             Debug.Log(other.gameObject.name);
 
           
-            if (other.gameObject.name == "Ball")
+            if (other.gameObject.name == "Ball_Sprite")
             {
                 switch (BrickHp)
                 {
