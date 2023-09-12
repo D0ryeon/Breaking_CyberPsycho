@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 6876153996325501651}
   m_Layer: 0
   m_Name: Right
-  m_TagString: Untagged
+  m_TagString: Wall
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -207,7 +207,7 @@ GameObject:
   - component: {fileID: 8281858516466805983}
   m_Layer: 0
   m_Name: Left
-  m_TagString: Untagged
+  m_TagString: Wall
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -523,7 +523,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Ball: {fileID: 0}
-  Paddle: {fileID: 0}
   Life: {fileID: 0}
   startGame: {fileID: 0}
 --- !u!1 &7825609524962260920
@@ -540,7 +539,7 @@ GameObject:
   - component: {fileID: 7620233878455979776}
   m_Layer: 0
   m_Name: Top
-  m_TagString: Untagged
+  m_TagString: TopWall
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
