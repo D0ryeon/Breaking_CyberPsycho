@@ -1,5 +1,6 @@
 using UnityEngine;
 using UnityEngine.EventSystems;
+using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
 public class UI_Button : UI_Base
@@ -10,7 +11,8 @@ public class UI_Button : UI_Base
     {
         Start,
         Score,
-        Option
+        Option,
+        Exit,
     }
 
     enum Texts
@@ -30,16 +32,39 @@ public class UI_Button : UI_Base
 
     void Start()
     {
+        Init();
+    }
+
+    void Init()
+    {
         Bind<Button>(typeof(Buttons));
         Bind<Text>(typeof(Texts));
         Bind<GameObject>(typeof(GameObjects));
         Bind<Image>(typeof(Images));
 
-        GetButton((int)Buttons.Score).gameObject.AddUIEvent(OnButtonClicked);
+        GetButton((int)Buttons.Start).gameObject.AddUIEvent(OnStartButtonClicked);
+        GetButton((int)Buttons.Score).gameObject.AddUIEvent(OnScoreButtonClicked);
+        GetButton((int)Buttons.Option).gameObject.AddUIEvent(OnOptionButtonClicked);
+        GetButton((int)Buttons.Exit).gameObject.AddUIEvent(OnExitButtonClicked);
     }
 
-    public void OnButtonClicked(PointerEventData data)
+    public void OnStartButtonClicked(PointerEventData data)
     {
-        // ToDo 팝업 창 종료 이벤트 로직 추가 필요
+        SceneManager.LoadScene("MainScene");
+    }
+
+    public void OnScoreButtonClicked(PointerEventData data)
+    {
+        GameManager.UI.ShowPopupUI<UI_Popup>(Buttons.Score.ToString());
+    }
+
+    public void OnOptionButtonClicked(PointerEventData data)
+    {
+        GameManager.UI.ShowPopupUI<UI_Popup>(Buttons.Option.ToString());
+    }
+
+    public void OnExitButtonClicked(PointerEventData data)
+    {
+        Application.Quit();
     }
 }

@@ -14,6 +14,7 @@ public class GameManager : MonoBehaviour
     SettingManager _setting = new SettingManager();
     SoundManager _sound = new SoundManager();
     StageManager _stage = new StageManager();
+    UIManager _ui = new UIManager();
 
     public static DataManager Data { get { return Instance._data; } }
     public static ItemManager Item { get { return Instance._item; } }
@@ -23,6 +24,7 @@ public class GameManager : MonoBehaviour
     public static SettingManager Setting { get {  return Instance._setting; } }
     public static SoundManager Sound { get { return Instance._sound; } }
     public static StageManager Stage { get {  return Instance._stage; } }
+    public static UIManager UI { get { return Instance._ui; } }
     #endregion
 
 
