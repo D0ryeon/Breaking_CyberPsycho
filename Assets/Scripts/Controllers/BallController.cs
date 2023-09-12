@@ -53,7 +53,7 @@ public class BallController : MonoBehaviour
             Vector2 vector2 = new Vector2(randomX, randomY);
             vector2 = vector2.normalized;
             rd.AddForce(vector2 * speed);
-
+            Debug.Log("Go");
         }
     }
 
