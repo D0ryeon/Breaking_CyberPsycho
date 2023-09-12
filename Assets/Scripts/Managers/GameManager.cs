@@ -1,6 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
-using System.Resources;
 using UnityEngine;
 
 public class GameManager : MonoBehaviour
@@ -47,7 +44,7 @@ public class GameManager : MonoBehaviour
             }
 
             DontDestroyOnLoad(gameObject);
-            s_instance = gameObject.GetComponent<GameManager>();
+            s_instance = gameObject.AddComponent<GameManager>();
 
             s_instance._data.Init();
         }
