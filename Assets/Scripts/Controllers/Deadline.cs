@@ -7,6 +7,7 @@ public class Deadline : MonoBehaviour
     public GameObject Ball;
     public GameObject Life;
     public GameObject startGame;
+    public GameObject endGame;
     // Start is called before the first frame update
     void Start()
     {
@@ -27,6 +28,13 @@ public class Deadline : MonoBehaviour
             Debug.Log("retry");
             startGame.SetActive(true);
             Ball.transform.localPosition = new Vector3(0f,0f,0f);
+            Life.GetComponent<PaddleController>().removeLife();
+            if (Life.GetComponent<PaddleController>().life <= 0)
+            {
+                // 다른 거 클릭 안되게하기
+                endGame.SetActive(true);
+                //
+            }
         }
     }
 }
