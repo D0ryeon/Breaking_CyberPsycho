@@ -16,6 +16,7 @@ public class BrickController : MonoBehaviour
         BrickHp = brickData.Hp;
         BrickScore = brickData.Score;
         sr = this.GetComponent<SpriteRenderer>();
+       
 
     }
 
@@ -30,6 +31,8 @@ public class BrickController : MonoBehaviour
         Debug.Log("블럭색갈::" + brickData.Color);
     }
 
+ 
+
 
     private void OnCollisionEnter2D(Collision2D other)
     {
@@ -39,7 +42,7 @@ public class BrickController : MonoBehaviour
             Debug.Log(other.gameObject.name);
 
           
-            if (other.gameObject.name == "Ball_Sprite")
+            if (other.gameObject.name == "Ball")
             {
                 switch (BrickHp)
                 {
@@ -57,7 +60,11 @@ public class BrickController : MonoBehaviour
                         break;
                     case  1:
                         Destroy(gameObject);
+                        StageManager.BrickCount--;
                         StageManager.score += BrickScore;
+
+                       
+
                         break;             
                 }            
                 BrickHp--;
@@ -67,4 +74,8 @@ public class BrickController : MonoBehaviour
             }
         }
     }
+
+
 }
+
+
