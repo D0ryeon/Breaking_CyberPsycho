@@ -5,6 +5,7 @@ using UnityEditor.UIElements;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
+using TMPro;
 
 public class UIController : MonoBehaviour
 {
@@ -14,8 +15,14 @@ public class UIController : MonoBehaviour
     public float time = 0.0f;
     public GameObject paddle;
     public GameObject gameOver;
-    public Text timeText;
+    public TextMeshProUGUI timeText;
     private float playerLife;
+
+
+
+
+
+
 
     private bool gamePlay = false;
 
@@ -23,9 +30,15 @@ public class UIController : MonoBehaviour
     {
         Time.timeScale = 0.0f;
         gamePlay = false;
+
+
+
+
+
+
     }
 
-    private void Update()
+        private void Update()
     {
         if (gamePlay)
         {

@@ -8,7 +8,6 @@ public class Deadline : MonoBehaviour
     public GameObject Life;
     public GameObject startGame;
     public GameObject endGame;
-    
     // Start is called before the first frame update
     void Start()
     {
@@ -32,7 +31,9 @@ public class Deadline : MonoBehaviour
             Life.GetComponent<PaddleController>().removeLife();
             if (Life.GetComponent<PaddleController>().life <= 0)
             {
-                Time.timeScale = 0f;
+                // 다른 거 클릭 안되게하기
+                endGame.SetActive(true);
+                //
             }
         }
     }

@@ -11,6 +11,8 @@ public class StageManager :MonoBehaviour
 {
     static public int score = 0;
     static public int BrickCount = 0;
+    public GameObject Life;
+
 
     [SerializeField]
     private List<BrickData> brickDatas;
@@ -53,6 +55,7 @@ public class StageManager :MonoBehaviour
     }
     void Start()
     {
+       
         Stage1();
         SaveScore();
     }
@@ -65,11 +68,12 @@ public class StageManager :MonoBehaviour
 
     public void init()
     {
-        Score score = GameManager.Score.GetHighScore();
-        CurrentHightScore.text = score.score.ToString();
+        Score Currentscore = GameManager.Score.GetHighScore();
+        CurrentHightScore.text = Currentscore.score.ToString();
 
         GameOverPopup.SetActive(false);
-        
+        score = 0;
+
 
     }
 
@@ -87,7 +91,7 @@ public class StageManager :MonoBehaviour
 
     public void GameEnd()
     {
-        if (BrickCount == 0)
+        if (BrickCount == 0 || Life.GetComponent<PaddleController>().life <= 0)
         {
             Time.timeScale = 0f; // stage1 end
             Score Hscore = GameManager.Score.GetHighScore();
@@ -96,7 +100,7 @@ public class StageManager :MonoBehaviour
                 YourScore.text = score.ToString();
                 HightScore.text = YourScore.text;
             }
-            else
+            else 
             {
                 YourScore.text = score.ToString();
                 HightScore.text = Hscore.score.ToString();
