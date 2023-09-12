@@ -1,18 +1,16 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class ScenesManager : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
+    public Text timeTxt;
+    float time = 0.0f;
+    private void Update()
     {
-        
+        time += Time.deltaTime;
+        timeTxt.text = time.ToString();
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
 }
