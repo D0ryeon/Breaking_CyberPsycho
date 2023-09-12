@@ -35,7 +35,7 @@ public class UI_Button : UI_Base
         Init();
     }
 
-    void Init()
+    public override void Init()
     {
         Bind<Button>(typeof(Buttons));
         Bind<Text>(typeof(Texts));
@@ -47,6 +47,7 @@ public class UI_Button : UI_Base
         GetButton((int)Buttons.Option).gameObject.AddUIEvent(OnOptionButtonClicked);
         GetButton((int)Buttons.Exit).gameObject.AddUIEvent(OnExitButtonClicked);
     }
+
 
     public void OnStartButtonClicked(PointerEventData data)
     {

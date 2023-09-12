@@ -978,7 +978,7 @@ GameObject:
   - component: {fileID: 8658885197936670264}
   - component: {fileID: 6195839946748981008}
   - component: {fileID: 399263402393420721}
-  - component: {fileID: 1276965608919927815}
+  - component: {fileID: 3994844242066997943}
   m_Layer: 5
   m_Name: Score
   m_TagString: Untagged
@@ -1004,7 +1004,7 @@ RectTransform:
   - {fileID: 7774895634772543902}
   - {fileID: 1150810503012957338}
   m_Father: {fileID: 0}
-  m_RootOrder: -1
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
@@ -1074,7 +1074,7 @@ MonoBehaviour:
   m_BlockingMask:
     serializedVersion: 2
     m_Bits: 4294967295
---- !u!114 &1276965608919927815
+--- !u!114 &3994844242066997943
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -1083,16 +1083,9 @@ MonoBehaviour:
   m_GameObject: {fileID: 8388217688642192445}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c840342213e39754a87675ac52b977ff, type: 3}
+  m_Script: {fileID: 11500000, guid: 46379b0655b615e40850f9e5566b9111, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  life1: {fileID: 0}
-  life2: {fileID: 0}
-  life3: {fileID: 0}
-  time: 0
-  paddle: {fileID: 0}
-  gameOver: {fileID: 0}
-  timeText: {fileID: 0}
 --- !u!1 &8461272366641295209
 GameObject:
   m_ObjectHideFlags: 0
@@ -1241,7 +1234,7 @@ GameObject:
   - component: {fileID: 1984953320451398260}
   - component: {fileID: 7287029389469947562}
   m_Layer: 5
-  m_Name: PageBackBtn
+  m_Name: Exit
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
