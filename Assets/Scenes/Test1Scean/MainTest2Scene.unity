@@ -3051,6 +3051,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Life: {fileID: 44318208}
+  startGame: {fileID: 1012600427982058138}
+  Ball: {fileID: 749547265}
   brickDatas:
   - {fileID: 11400000, guid: 614bcbf8f787abb4a897f855b1a55e71, type: 2}
   - {fileID: 11400000, guid: 9b122fcf2b6c51944bc69b729ca7f61d, type: 2}
