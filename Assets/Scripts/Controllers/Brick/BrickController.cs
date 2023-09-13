@@ -87,12 +87,20 @@ public class BrickController : MonoBehaviour
     void ItemGenerator(Vector2 CoITr)
     {
         int rand = Random.Range(0, 10000);
-        if(rand < 800)
-        {                                     
+        if(rand < 1000)
+        {
+            string currentName = "";
+            switch (rand % 3)
+            {
+                case 0: currentName = "Item1"; break;
+                case 1: currentName = "Item2"; break;
+                case 2: currentName = "Item3"; break;
+
+            }
              GameObject item = Instantiate(PItem, CoITr,Quaternion.identity);
-             item.name = "Item";
-             
-             item.GetComponent<Rigidbody2D>().AddForce(Vector2.down*0.008f);            
+             item.name = currentName;
+
+            item.GetComponent<Rigidbody2D>().AddForce(Vector2.down*0.008f);            
         }
     }
 
