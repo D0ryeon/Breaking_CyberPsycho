@@ -12,9 +12,11 @@ public class StageManager :MonoBehaviour
     static public int score = 0;
     static public int BrickCount = 0;
     public GameObject Life;
-    
+    public GameObject startGame;
+    [SerializeField]
+    private GameObject Ball;
 
-   [SerializeField]
+    [SerializeField]
     private List<BrickData> brickDatas;
     [SerializeField]
     private GameObject brickPrefab;
@@ -54,11 +56,7 @@ public class StageManager :MonoBehaviour
 
 
 
-    private void Awake()
-    {
-      
 
-    }
     void Start()
     {
         init();
@@ -67,16 +65,7 @@ public class StageManager :MonoBehaviour
       
         BtnNextStage.onClick.AddListener(() =>
         {
-
-            Time.timeScale = 0;
-            Debug.Log("´Ù½Ã");
-            Next++;
-            Stage1(Next);
-            NextStagePopup.SetActive(false);
-               
-               
-           
-        
+            NextStageSet();
         });
     }
     void Update()
@@ -89,6 +78,15 @@ public class StageManager :MonoBehaviour
             StagePopup();
         }
         
+    }
+    public void NextStageSet()
+    {
+        Time.timeScale = 0;
+        startGame.SetActive(true);
+        Ball.transform.localPosition = new Vector3(0f, 0f, 0f);
+        Next++;
+        Stage1(Next);
+        NextStagePopup.SetActive(false);
     }
 
     public void init()
