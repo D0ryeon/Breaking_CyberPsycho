@@ -7,7 +7,7 @@ public class UIController : MonoBehaviour
     public GameObject life1;
     public GameObject life2;
     public GameObject life3;
-    public float time = 0.0f;
+    static public float time = 10f;
     public GameObject paddle;
     public GameObject gameOver;
     public TextMeshProUGUI timeText;
@@ -18,7 +18,7 @@ public class UIController : MonoBehaviour
     private void Start()
     {
         Time.timeScale = 0.0f;
-        gamePlay = false;
+        gamePlay = true;
     }
 
         private void Update()
