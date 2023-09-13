@@ -2,10 +2,14 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+
 public class BrickController : MonoBehaviour
 {
     SpriteRenderer sr;
     public BrickData brickData;
+    public GameObject PItem;
+
+
     int BrickHp;
     int BrickScore;
 
@@ -15,23 +19,15 @@ public class BrickController : MonoBehaviour
     {
         BrickHp = brickData.Hp;
         BrickScore = brickData.Score;
-        sr = this.GetComponent<SpriteRenderer>();
-       
-
+        sr = this.GetComponent<SpriteRenderer>();      
     }
 
     private void Update()
     {
 
     }
-        public void PrintBrick()
-    {
-        Debug.Log("블럭이름::" + brickData.BrickName);
-        Debug.Log("블럭Hp::" + brickData.Hp);
-        Debug.Log("블럭색갈::" + brickData.Color);
-    }
+    
 
- 
 
 
     private void OnCollisionEnter2D(Collision2D other)
@@ -59,11 +55,10 @@ public class BrickController : MonoBehaviour
                         sr.color = Color.white;
                         break;
                     case  1:
-                        Destroy(gameObject);
-                        StageManager.BrickCount--;
-                        StageManager.score += BrickScore;
+                        BrickDestroy(other.transform);
 
-                       
+
+
 
                         break;             
                 }            
@@ -75,6 +70,31 @@ public class BrickController : MonoBehaviour
         }
     }
 
+    public void PrintBrick()
+    {
+        Debug.Log("블럭이름::" + brickData.BrickName);
+        Debug.Log("블럭Hp::" + brickData.Hp);
+        Debug.Log("블럭색갈::" + brickData.Color);
+    }
+
+     void BrickDestroy(Transform ColTr)
+    {
+        ItemGenerator(ColTr.position);
+        Destroy(gameObject);
+        StageManager.BrickCount--;
+        StageManager.score += BrickScore;
+    }
+    void ItemGenerator(Vector2 CoITr)
+    {
+        int rand = Random.Range(0, 10000);
+        if(rand < 800)
+        {                                     
+             GameObject item = Instantiate(PItem, CoITr,Quaternion.identity);
+             item.name = "Item";
+             
+             item.GetComponent<Rigidbody2D>().AddForce(Vector2.down*0.008f);            
+        }
+    }
 
 }
 
