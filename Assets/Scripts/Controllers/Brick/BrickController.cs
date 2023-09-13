@@ -60,6 +60,7 @@ public class BrickController : MonoBehaviour
 
 
 
+
                         break;             
                 }            
                 BrickHp--;
@@ -72,15 +73,16 @@ public class BrickController : MonoBehaviour
 
     public void PrintBrick()
     {
-        Debug.Log("ºí·°ÀÌ¸§::" + brickData.BrickName);
-        Debug.Log("ºí·°Hp::" + brickData.Hp);
-        Debug.Log("ºí·°»ö°¥::" + brickData.Color);
+        Debug.Log("ÂºÃ­Â·Â°Ã€ÃŒÂ¸Â§::" + brickData.BrickName);
+        Debug.Log("ÂºÃ­Â·Â°Hp::" + brickData.Hp);
+        Debug.Log("ÂºÃ­Â·Â°Â»Ã¶Â°Â¥::" + brickData.Color);
     }
 
      void BrickDestroy(Transform ColTr)
     {
         ItemGenerator(ColTr.position);
         Destroy(gameObject);
+        SoundManager.Instance.BlockBrokenSound();
         StageManager.BrickCount--;
         StageManager.score += BrickScore;
     }
