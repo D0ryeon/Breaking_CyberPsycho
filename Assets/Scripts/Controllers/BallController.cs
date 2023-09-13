@@ -21,7 +21,7 @@ public class BallController : MonoBehaviour
     {
         rd = GetComponent<Rigidbody2D>();
 
-        randomX = Random.Range(-0.6f, 0.6f);
+        randomX = 1f;
         randomY = 1f;
 
         //Starball();
@@ -48,12 +48,12 @@ public class BallController : MonoBehaviour
     {
         if (!starts)
         {
+            //Time.timeScale = 1f;
             rd.velocity = Vector3.zero;
             starts = true;
             Vector2 vector2 = new Vector2(randomX, randomY);
             vector2 = vector2.normalized;
             rd.AddForce(vector2 * speed);
-            Debug.Log("Go");
         }
     }
 
