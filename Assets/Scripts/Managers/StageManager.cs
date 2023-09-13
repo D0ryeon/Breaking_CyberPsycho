@@ -84,7 +84,8 @@ public class StageManager :MonoBehaviour
         Time.timeScale = 0;
         startGame.SetActive(true);
         Ball.transform.localPosition = new Vector3(0f, 0f, 0f);
-        if(Next< brickDatas.Count+1)
+        UIController.time = 120f;
+        if (Next< brickDatas.Count+1)
         {
             Next++;
         }
@@ -121,7 +122,7 @@ public class StageManager :MonoBehaviour
 
     public void GameEnd()
     {
-        if ( Life.GetComponent<PaddleController>().life <= 0 || Next ==4 || GameoverCount >brickDatas.Count)
+        if (Life.GetComponent<PaddleController>().life <= 0 || Next == 4 || GameoverCount > brickDatas.Count || UIController.time <= 0)
         {
             
             Time.timeScale = 0f; // stage1 end

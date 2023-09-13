@@ -44,6 +44,7 @@ public class BrickController : MonoBehaviour
                 {
                     case > 4:
                         sr.color = Color.black;
+
                         break;
                     case  4:
                         sr.color = Color.blue;
@@ -56,11 +57,6 @@ public class BrickController : MonoBehaviour
                         break;
                     case  1:
                         BrickDestroy(other.transform);
-
-
-
-
-
                         break;             
                 }            
                 BrickHp--;
@@ -82,7 +78,7 @@ public class BrickController : MonoBehaviour
     {
         ItemGenerator(ColTr.position);
         Destroy(gameObject);
-        SoundManager.Instance.BlockBrokenSound();
+       // SoundManager.Instance.BlockBrokenSound();
         StageManager.BrickCount--;
         StageManager.score += BrickScore;
     }
