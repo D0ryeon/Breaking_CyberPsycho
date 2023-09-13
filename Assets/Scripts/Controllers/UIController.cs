@@ -1,10 +1,6 @@
-using System;
-using System.Collections;
-using System.Collections.Generic;
-using UnityEditor.UIElements;
 using UnityEngine;
 using UnityEngine.SceneManagement;
-using UnityEngine.UI;
+using TMPro;
 
 public class UIController : MonoBehaviour
 {
@@ -14,7 +10,7 @@ public class UIController : MonoBehaviour
     public float time = 0.0f;
     public GameObject paddle;
     public GameObject gameOver;
-    public Text timeText;
+    public TextMeshProUGUI timeText;
     private float playerLife;
 
     private bool gamePlay = false;
@@ -25,7 +21,7 @@ public class UIController : MonoBehaviour
         gamePlay = false;
     }
 
-    private void Update()
+        private void Update()
     {
         if (gamePlay)
         {
@@ -41,26 +37,9 @@ public class UIController : MonoBehaviour
         
     }
 
-
-    public void GoMainScene()
-    {
-        SceneManager.LoadScene("MainScene");
-    }
     public void GoStartScene()
     {
         SceneManager.LoadScene("StartScene");
-    }
-
-    public void OnOffPopUP(GameObject gameObject)
-    {
-        if (gameObject.activeSelf == false)
-        {
-            gameObject.SetActive(true);
-        }
-        else
-        {
-            gameObject.SetActive(false);
-        }
     }
 
     public void lifeCheck()
@@ -114,11 +93,4 @@ public class UIController : MonoBehaviour
         gameOver.SetActive(true);
         gamePlay = false;
     }
-
-
-    public void GameExit()
-    {
-        Application.Quit();
-    }
-
 }

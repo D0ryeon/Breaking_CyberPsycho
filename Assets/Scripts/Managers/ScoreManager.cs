@@ -13,8 +13,8 @@ public class ScoreManager
     {
         List<Score> scoreList = FileIO.LoadJsonFile<List<Score>>(SCORE_FILE_NAME);
 
-        if (scoreList.Count == 0)
-            return null;
+        if (scoreList == null || scoreList.Count == 0)
+            return new Score();
 
         Score highScore = null;
         int highScoreNum = 0;
@@ -37,8 +37,11 @@ public class ScoreManager
     {
         List<Score> scoreList = FileIO.LoadJsonFile<List<Score>>(SCORE_FILE_NAME);
         
+        if (scoreList == null || scoreList.Count == 0)
+            return null;
+
         scoreList.Sort((x, y) => {
-            return x.score.CompareTo(y.score);
+            return y.score.CompareTo(x.score);
         });
 
 

@@ -2,10 +2,14 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+
 public class BrickController : MonoBehaviour
 {
     SpriteRenderer sr;
     public BrickData brickData;
+    public GameObject PItem;
+
+
     int BrickHp;
     int BrickScore;
 
@@ -15,23 +19,15 @@ public class BrickController : MonoBehaviour
     {
         BrickHp = brickData.Hp;
         BrickScore = brickData.Score;
-        sr = this.GetComponent<SpriteRenderer>();
-       
-
+        sr = this.GetComponent<SpriteRenderer>();      
     }
 
     private void Update()
     {
 
     }
-        public void PrintBrick()
-    {
-        Debug.Log("ºí·°ÀÌ¸§::" + brickData.BrickName);
-        Debug.Log("ºí·°Hp::" + brickData.Hp);
-        Debug.Log("ºí·°»ö°¥::" + brickData.Color);
-    }
+    
 
- 
 
 
     private void OnCollisionEnter2D(Collision2D other)
@@ -42,7 +38,7 @@ public class BrickController : MonoBehaviour
             Debug.Log(other.gameObject.name);
 
           
-            if (other.gameObject.name == "Ball")
+            if (other.gameObject.name == "Ball_Sprite")
             {
                 switch (BrickHp)
                 {
@@ -59,10 +55,8 @@ public class BrickController : MonoBehaviour
                         sr.color = Color.white;
                         break;
                     case  1:
-                        Destroy(gameObject);
-                        StageManager.BrickCount--;
-                        StageManager.score += BrickScore;
-                        SoundManager.Instance.BlockBrokenSound();
+                        BrickDestroy(other.transform);
+
 
 
 
@@ -77,6 +71,40 @@ public class BrickController : MonoBehaviour
         }
     }
 
+    public void PrintBrick()
+    {
+        Debug.Log("ÂºÃ­Â·Â°Ã€ÃŒÂ¸Â§::" + brickData.BrickName);
+        Debug.Log("ÂºÃ­Â·Â°Hp::" + brickData.Hp);
+        Debug.Log("ÂºÃ­Â·Â°Â»Ã¶Â°Â¥::" + brickData.Color);
+    }
+
+     void BrickDestroy(Transform ColTr)
+    {
+        ItemGenerator(ColTr.position);
+        Destroy(gameObject);
+        SoundManager.Instance.BlockBrokenSound();
+        StageManager.BrickCount--;
+        StageManager.score += BrickScore;
+    }
+    void ItemGenerator(Vector2 CoITr)
+    {
+        int rand = Random.Range(0, 10000);
+        if(rand < 1000)
+        {
+            string currentName = "";
+            switch (rand % 3)
+            {
+                case 0: currentName = "Item1"; break;
+                case 1: currentName = "Item2"; break;
+                case 2: currentName = "Item3"; break;
+
+            }
+             GameObject item = Instantiate(PItem, CoITr,Quaternion.identity);
+             item.name = currentName;
+
+            item.GetComponent<Rigidbody2D>().AddForce(Vector2.down*0.008f);            
+        }
+    }
 
 }
 

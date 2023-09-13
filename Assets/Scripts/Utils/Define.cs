@@ -41,4 +41,8 @@ public class Define
         Size
     }
 
+    public enum UIEvent
+    {
+        Click,
+    }
 }

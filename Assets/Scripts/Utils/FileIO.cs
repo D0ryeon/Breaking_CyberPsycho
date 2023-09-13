@@ -7,7 +7,7 @@ public class FileIO
 {
     private const string JSON_FILE_DIR = "/Data/";
 
-    static public void SaveJsonFile<T>(T obj, string fileName)
+    public static void SaveJsonFile<T>(T obj, string fileName)
     {
         string fileFullPath = $"{Application.dataPath}{JSON_FILE_DIR}{fileName}.json";
 
@@ -36,7 +36,7 @@ public class FileIO
         File.WriteAllText(fileFullPath, outputJson);
     }
 
-    static public T LoadJsonFile<T>(string fileName)
+    public static T LoadJsonFile<T>(string fileName)
     {
         string fileFullPath = $"{Application.dataPath}{JSON_FILE_DIR}{fileName}.json";
 

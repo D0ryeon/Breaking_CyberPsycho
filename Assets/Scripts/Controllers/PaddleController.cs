@@ -7,12 +7,15 @@ using static UnityEditor.PlayerSettings;
 
 public class PaddleController : MonoBehaviour
 {
+
     public Rigidbody2D rb;
     private float horizontal;
     //private float vertical;
     //[SerializeField][RangeAttribute(50f, 1000f)] float speed = 100f;
     [SerializeField][RangeAttribute(0.5f, 10f)] float size = 3f;
     [SerializeField][RangeAttribute(1f, 10f)] public float life = 3f;
+    public float[] arrAngles =
+                 { -75, -60, -45, -30, -15, 0, 15, 30, 45, 60, 75 };
     // Start is called before the first frame update
     void Start()
     {
@@ -23,6 +26,7 @@ public class PaddleController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+
         transform.localScale = new Vector3(size, 0.3f);
         //키보드로 움직이기////
         //rb.velocity = Vector3.zero;
@@ -48,5 +52,16 @@ public class PaddleController : MonoBehaviour
     void FixedUpdate()
     {
 
+    }
+
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
+        if (collision.collider.CompareTag("Ball"))
+        {
+            int r = Random.Range(0, arrAngles.Length);
+            Vector3 tmp = collision.transform.eulerAngles;
+            tmp.z = arrAngles[r];
+            collision.transform.eulerAngles = tmp;
+        }
     }
 }
