@@ -21,7 +21,7 @@ public class BallController : MonoBehaviour
     {
         rd = GetComponent<Rigidbody2D>();
 
-        randomX = Random.Range(-0.6f, 0.6f);
+        randomX = 1f;
         randomY = 1f;
 
         //Starball();
@@ -40,6 +40,10 @@ public class BallController : MonoBehaviour
         }
         else
         {
+            if (paddle.GetComponent<PaddleController>().life != 0)
+            {
+                Time.timeScale = 1f;
+            }
             Starball();
         }
     }
