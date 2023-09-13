@@ -2,31 +2,70 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+
 public class SoundManager : MonoBehaviour
 {
-    //private static SoundManager _instance;
+    public static SoundManager instance;
+    void Awake()
+    {
+        if (null == instance)
+        {
+            instance = this;
+            DontDestroyOnLoad(this.gameObject);
+        }
+        else
+        {
+            Destroy(this.gameObject);
+        }
+    }
+    public static SoundManager Instance
+    {
+        get
+        {
+            if (null == instance)
+            {
+                return null;
+            }
+            return instance;
+        }
+    }
 
     public AudioSource BgmAudioSource;
-    public AudioSource EffectAudioSource;
+    public AudioSource MainAudioSource;
+    public AudioSource BlockBrokenAudioSource;
+    public AudioSource BallBounceAudioSource;
 
     public AudioClip BgmAudioClip;
-    public AudioClip effectAudioClip;
+    public AudioClip MainAudioClip;
+    public AudioClip BlockBrokenAudioClip;
+    public AudioClip BallBounceClip;
 
-    private bool isPlaying = false;
 
-    public void Start()
+    public void PlayBgmSound()
     {
         BgmAudioSource.clip = BgmAudioClip;
         BgmAudioSource.Play();
-        //배열 관리 후 여러개의 음악 넣기
     }
 
-    public void PlayEffectSound()
+    public void MainBgmSound()
     {
-        EffectAudioSource.clip = effectAudioClip;
-        //EffectAudioSource.
-        //배열관리하는법?
+        BgmAudioSource.Stop();
+        MainAudioSource.clip = MainAudioClip;
+        MainAudioSource.Play();
     }
+
+    public void BlockBrokenSound()
+    {
+        BlockBrokenAudioSource.clip = BlockBrokenAudioClip;
+        BlockBrokenAudioSource.PlayOneShot(BlockBrokenAudioClip);
+    }
+
+    public void BallBounceSound()
+    {
+        BallBounceAudioSource.clip = BallBounceClip;
+        BallBounceAudioSource.PlayOneShot(BallBounceClip);
+    }
+
 
     private void audioSourcePlay()
     {
