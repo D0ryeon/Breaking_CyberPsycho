@@ -69,6 +69,7 @@ public class StageManager :MonoBehaviour
     public void init()
     {
         Score Currentscore = GameManager.Score.GetHighScore();
+
         CurrentHightScore.text = Currentscore.score.ToString();
 
         GameOverPopup.SetActive(false);

@@ -7,6 +7,10 @@ public class Score
     public int score { get; set; }
     public string name { get; set; }
 
+    public Score()
+    {
+    }
+
     public Score(int score, string name)
     {
         this.score = score;
