@@ -7,7 +7,7 @@ public class UIController : MonoBehaviour
     public GameObject life1;
     public GameObject life2;
     public GameObject life3;
-    static public float time = 10f;
+    static public float time = 120f;
     public GameObject paddle;
     public GameObject gameOver;
     public TextMeshProUGUI timeText;

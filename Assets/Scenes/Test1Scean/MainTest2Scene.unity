@@ -1286,9 +1286,8 @@ MonoBehaviour:
   life1: {fileID: 529015496}
   life2: {fileID: 2012900036}
   life3: {fileID: 1600910865}
-  time: 60
-  paddle: {fileID: 0}
-  gameOver: {fileID: 0}
+  paddle: {fileID: 44318208}
+  gameOver: {fileID: 2540581277657040159}
   timeText: {fileID: 1401959799}
 --- !u!4 &1428655865
 Transform:
@@ -1497,6 +1496,10 @@ PrefabInstance:
     - target: {fileID: 5750905330389749074, guid: ed5f6e28012165c4b80119524f935014, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6965558496686384113, guid: ed5f6e28012165c4b80119524f935014, type: 3}
+      propertyPath: speed
+      value: 12
       objectReference: {fileID: 0}
     - target: {fileID: 6965558496686384113, guid: ed5f6e28012165c4b80119524f935014, type: 3}
       propertyPath: paddle
