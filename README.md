@@ -26,10 +26,19 @@
 ## 프로젝트 설계
 
 
-### 클래스 다이어그램
+### 다이어그램
+
+<img src="https://github.com/D0ryeon/Breaking_CyberPsycho/assets/70641418/bbae9cbc-8b07-40b5-8f55-f7036c320ea6">
 
 
+<br/>
+<br/>
 
+### 패키지 구조도
+
+<img src="https://github.com/D0ryeon/Breaking_CyberPsycho/assets/70641418/798e8e44-8ccf-4c86-ac50-51468377096b">
+
+<br/>
 <br/>
 
 ### 와이어 프레임(Figma)
