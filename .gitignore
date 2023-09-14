@@ -73,3 +73,4 @@ crashlytics-build.properties
 
 # Json Data file
 /Assets/Resources/Data/PlayerScore.json
+/Assets/Resources/Data/PlayerScore.json.meta
