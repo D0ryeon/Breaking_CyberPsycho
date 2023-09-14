@@ -31,14 +31,14 @@ public class Define
         Three
     }
 
-   public enum Item
+   public enum ItemType
     {
-        Damage,
+        PlayerLife,
+        GameTime,
+        BallSpeed,
+        PaddleSize,
         BallCount,
-        Life,
-        Time,
-        Speed,
-        Size
+        End,
     }
 
     public enum UIEvent
