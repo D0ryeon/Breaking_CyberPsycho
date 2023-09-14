@@ -7,7 +7,7 @@ using UnityEngine.U2D;
 
 public class BallController : MonoBehaviour
 {
-    [SerializeField][RangeAttribute(1f, 3000f)] float speed = 1f;
+    [SerializeField][RangeAttribute(1f, 3000f)] float speed = 10f;
     [SerializeField][RangeAttribute(0.5f, 5f)] float size = 1f;
     public Rigidbody2D rd;
     public GameObject paddle;
