@@ -5,6 +5,7 @@
 
 ## 시연 영상
 
+https://github.com/D0ryeon/Breaking_CyberPsycho/assets/70641418/a09c5e57-23fe-4337-b532-6c7c3fb75e78
 
 <br/>
 
