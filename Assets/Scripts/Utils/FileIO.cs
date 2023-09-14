@@ -5,7 +5,7 @@ using UnityEngine.Device;
 
 public class FileIO
 {
-    private const string JSON_FILE_DIR = "/Data/";
+    private const string JSON_FILE_DIR = "/Resources/Data/";
 
     public static void SaveJsonFile<T>(T obj, string fileName)
     {
