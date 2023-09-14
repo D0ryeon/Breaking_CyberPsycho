@@ -20,14 +20,14 @@ public class PaddleController : MonoBehaviour
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
-        transform.localScale = new Vector3(3f, 0.3f);
+        //transform.localScale = new Vector3(3f, 0.3f);
     }
 
     // Update is called once per frame
     void Update()
     {
 
-        transform.localScale = new Vector3(size, 0.3f);
+        //transform.localScale = new Vector3(size, 0.3f);
         //키보드로 움직이기////
         //rb.velocity = Vector3.zero;
         //horizontal = Input.GetAxis("Horizontal");
