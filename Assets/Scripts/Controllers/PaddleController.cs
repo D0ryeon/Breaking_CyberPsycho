@@ -62,6 +62,7 @@ public class PaddleController : MonoBehaviour
             Vector3 tmp = collision.transform.eulerAngles;
             tmp.z = arrAngles[r];
             collision.transform.eulerAngles = tmp;
+            SoundManager.Instance.BallBounceSound();
         }
     }
 }

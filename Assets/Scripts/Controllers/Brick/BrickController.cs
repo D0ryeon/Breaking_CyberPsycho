@@ -44,16 +44,19 @@ public class BrickController : MonoBehaviour
                 {
                     case > 4:
                         sr.color = Color.black;
-
+                        SoundManager.Instance.BlockHitSound();
                         break;
                     case  4:
                         sr.color = Color.blue;
+                        SoundManager.Instance.BlockHitSound();
                         break;
                     case 3:
                         sr.color = Color.red;
+                        SoundManager.Instance.BlockHitSound();
                         break;
                     case 2:
                         sr.color = Color.white;
+                        SoundManager.Instance.BlockHitSound();
                         break;
                     case  1:
                         BrickDestroy(other.transform);
