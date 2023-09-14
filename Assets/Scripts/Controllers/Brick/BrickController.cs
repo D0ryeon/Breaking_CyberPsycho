@@ -81,7 +81,7 @@ public class BrickController : MonoBehaviour
     {
         ItemGenerator(ColTr.position);
         Destroy(gameObject);
-        SoundManager.Instance.BlockBrokenSound();
+       // SoundManager.Instance.BlockBrokenSound();
         StageManager.BrickCount--;
         StageManager.score += BrickScore;
     }
