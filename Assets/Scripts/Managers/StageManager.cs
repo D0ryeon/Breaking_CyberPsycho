@@ -45,7 +45,7 @@ public class StageManager :MonoBehaviour
 
     private GameObject NextStagePopup;
     public int Next = 0;
-    int GameoverCount = 0;
+    int GameoverCount = 1;
 
 
     [Header("Stage1")]
@@ -84,7 +84,12 @@ public class StageManager :MonoBehaviour
         Time.timeScale = 0;
         startGame.SetActive(true);
         Ball.transform.localPosition = new Vector3(0f, 0f, 0f);
-        Next++;
+        UIController.time = 120f;
+        if (Next< brickDatas.Count+1)
+        {
+            Next++;
+        }
+    
         Stage1(Next);
         NextStagePopup.SetActive(false);
     }
@@ -93,7 +98,7 @@ public class StageManager :MonoBehaviour
     {
         Next = 0;
         BrickCount = 0;
-        GameoverCount = 0;
+        GameoverCount = 1;
         Score Currentscore = GameManager.Score.GetHighScore();
         CurrentHightScore.text = Currentscore.score.ToString();
         NextStagePopup.SetActive(false);
@@ -117,7 +122,7 @@ public class StageManager :MonoBehaviour
 
     public void GameEnd()
     {
-        if ( Life.GetComponent<PaddleController>().life <= 0 || Next ==4 || GameoverCount >= brickDatas.Count)
+        if (Life.GetComponent<PaddleController>().life <= 0 || Next == 4 || GameoverCount > brickDatas.Count || UIController.time <= 0)
         {
             
             Time.timeScale = 0f; // stage1 end

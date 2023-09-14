@@ -7,21 +7,23 @@ using UnityEngine.U2D;
 
 public class BallController : MonoBehaviour
 {
-    [SerializeField][RangeAttribute(1f, 1000f)] float speed = 1f;
+    [SerializeField][RangeAttribute(1f, 3000f)] float speed = 10f;
     [SerializeField][RangeAttribute(0.5f, 5f)] float size = 1f;
     public Rigidbody2D rd;
     public GameObject paddle;
     public GameObject startGame;
     const float C_Radian = 180f;
     bool starts = false;
+    private List<float> exclusionList = new List<float>() { 0f }; //제외할 값
 
     float randomX, randomY;
+    Vector2 Allspeed;
 
     void Start()
     {
         rd = GetComponent<Rigidbody2D>();
 
-        randomX = 1f;
+        randomX = GenerateRandomNumber(-0.4f, 0.4f);
         randomY = 1f;
 
         //Starball();
@@ -52,8 +54,15 @@ public class BallController : MonoBehaviour
             rd.velocity = Vector3.zero;
             starts = true;
             Vector2 vector2 = new Vector2(randomX, randomY);
-            vector2 = vector2.normalized;
-            rd.AddForce(vector2 * speed);
+            rd.velocity = vector2 * speed;
+            Allspeed = rd.velocity;
+            //vector2 = vector2.normalized;
+
+            //rd.AddForce(vector2 * speed );
+        }
+        else
+        {
+            //rd.velocity= Allspeed;
         }
     }
 
@@ -71,5 +80,15 @@ public class BallController : MonoBehaviour
             tmp.z = (C_Radian * 2) - tmp.z;
             transform.eulerAngles = tmp;
         }
+    }
+
+    private float GenerateRandomNumber(float min, float max)
+    {
+        float randomValue = Random.Range(min, max);
+        while (exclusionList.Contains(randomValue))
+        {
+            randomValue = Random.Range(min, max);
+        }
+        return randomValue;
     }
 }
