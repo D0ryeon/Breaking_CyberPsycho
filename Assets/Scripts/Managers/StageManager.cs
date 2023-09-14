@@ -179,7 +179,7 @@ public class StageManager :MonoBehaviour
         float currentX = -10f;
         float currentY = 0;
 
-        for (int i = 0; i < 4; i++)
+        for (int i = 0; i < 3; i++)
         {
             for (int j = 0; j < 9; j++)
             {
