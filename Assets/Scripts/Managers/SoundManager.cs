@@ -34,11 +34,15 @@ public class SoundManager : MonoBehaviour
     public AudioSource MainAudioSource;
     public AudioSource BlockBrokenAudioSource;
     public AudioSource BallBounceAudioSource;
+    public AudioSource BlockHitAudioSource;
+    //public AudioSource ItemAudioSource;
 
     public AudioClip BgmAudioClip;
     public AudioClip MainAudioClip;
     public AudioClip BlockBrokenAudioClip;
     public AudioClip BallBounceClip;
+    public AudioClip BlockHitAudioClip;
+    //public AudioClip ItemAudioClip;
 
 
     public void PlayBgmSound()
@@ -49,6 +53,7 @@ public class SoundManager : MonoBehaviour
 
     public void MainBgmSound()
     {
+        
         BgmAudioSource.Stop();
         MainAudioSource.clip = MainAudioClip;
         MainAudioSource.Play();
@@ -66,6 +71,16 @@ public class SoundManager : MonoBehaviour
         BallBounceAudioSource.PlayOneShot(BallBounceClip);
     }
 
+    public void BlockHitSound()
+    {
+        BlockHitAudioSource.clip = BlockHitAudioClip;
+        BlockHitAudioSource.PlayOneShot(BlockHitAudioClip);
+    }
+
+    /*public void ItemSound()
+    {
+        
+    }*/
 
     private void audioSourcePlay()
     {
