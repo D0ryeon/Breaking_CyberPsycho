@@ -33,7 +33,7 @@ public class ScoreManager
         return highScore;
     }
 
-    public List<Score> GetTopFiveScore()
+    public List<Score> GetTopSevenScore()
     {
         List<Score> scoreList = FileIO.LoadJsonFile<List<Score>>(SCORE_FILE_NAME);
         
@@ -45,17 +45,17 @@ public class ScoreManager
         });
 
 
-        List<Score> topFiveScoreList = new List<Score>();
-        if (scoreList.Count >= 5)
+        List<Score> topSevenScoreList = new List<Score>();
+        if (scoreList.Count >= 7)
         {
-            topFiveScoreList = scoreList.GetRange(0, 5);
+            topSevenScoreList = scoreList.GetRange(0, 7);
         }
         else
         {
             foreach (Score scoreObj in scoreList)
-                topFiveScoreList.Add(scoreObj);
+                topSevenScoreList.Add(scoreObj);
         }
 
-        return topFiveScoreList;
+        return topSevenScoreList;
     }
 }

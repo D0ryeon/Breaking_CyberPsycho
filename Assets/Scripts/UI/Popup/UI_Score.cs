@@ -32,6 +32,9 @@ public class UI_Score : UI_Popup
         PlayerScore2,
         PlayerScore3,
         PlayerScore4,
+        PlayerScore5,
+        PlayerScore6,
+        PlayerScore7,
     }
 
     public override void Init()
@@ -46,7 +49,7 @@ public class UI_Score : UI_Popup
 
     private void SetPlayerScore()
     {
-        List<Score>scoreList = GameManager.Score.GetTopFiveScore();
+        List<Score>scoreList = GameManager.Score.GetTopSevenScore();
 
         if (scoreList == null || scoreList.Count == 0)
             return;
@@ -55,12 +58,9 @@ public class UI_Score : UI_Popup
 
         for (int i = 0; i < scoreList.Count; i++)
         {
-            if (i == 5)
-                continue;
-
             GameObject playerScore = GetGameObject(i) ;
-            TMP_Text name = Util.FindChild<TMP_Text>(playerScore, Texts.Name.ToString());
-            TMP_Text score = Util.FindChild<TMP_Text>(playerScore, Texts.Score.ToString());
+            Text name = Util.FindChild<Text>(playerScore, Texts.Name.ToString());
+            Text score = Util.FindChild<Text>(playerScore, Texts.Score.ToString());
 
             name.text = scoreList[i].name;
             score.text = scoreList[i].score.ToString();
